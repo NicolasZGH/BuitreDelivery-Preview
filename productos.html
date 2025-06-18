@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Productos</title>
+    <link rel="stylesheet" href="style/navbar.css">
+    <link rel="stylesheet" href="style/inicio.css">
+    <link rel="icon" type="image/png" href="images/icon.png">
+    <style>
+    body {
+        font-family: 'Roboto', sans-serif;
+        margin-top: 50px;
+    }
+
+    .navbar {
+
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+    }
+
+    .navbar a {
+        float: left;
+        display: block;
+        color: #fff;
+        text-align: center;
+        padding: 14px 20px;
+        text-decoration: none;
+    }
+
+    .navbar a.active {
+        background-color: #e64e08;
+    }
+
+
+
+    .navbar a:last-child {
+        margin-left: auto;
+    }
+
+    .busqueda {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: white;
+        padding: 1rem;
+        margin: 2rem auto 1rem auto;
+        width: fit-content;
+        border-radius: 10px;
+    }
+
+    .busqueda input {
+        padding: 0.5rem;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .busqueda button {
+        padding: 0.5rem 1rem;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    .busqueda .buscar {
+        background-color: #e64e08;
+        color: white;
+    }
+
+    .busqueda .volver {
+        background-color: #333;
+        color: white;
+    }
+
+    h2 {
+        text-align: center;
+        margin: 0px;
+        font-size: 1.8rem;
+    }
+
+    .tabla-contenedor {
+        max-width: 1100px;
+        margin: 0 auto 3rem auto;
+        border-radius: 10px;
+        padding: 1rem;
+    }
+
+    .agregar-producto {
+        margin: 1rem;
+        background-color: #e64e08;
+        padding: 0.7rem 1.2rem;
+        color: white;
+        font-weight: bold;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        margin-right: 78%;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 1rem;
+    }
+
+    th {
+        background-color: #e64e08;
+        color: white;
+        padding: 10px;
+        text-align: left;
+    }
+
+    td {
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .acciones button {
+        padding: 6px 12px;
+        margin-right: 5px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    .editar {
+        background-color: #2196F3;
+        color: white;
+    }
+
+    .eliminar {
+        background-color: #f44336;
+        color: white;
+    }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+    <a href="inicio.html">Inicio</a>
+    <a href="pedidos.html">Agregar Pedidos</a>
+    <a href="total.html">Total de Pedidos</a>
+    <a href="clientes.html">Clientes</a>
+    <a href="productos.html" class="active">Productos</a>
+    <a href="index.html">Cerrar sesión</a>
+    </div>
+
+    <div class="busqueda">
+    <label for="busqueda_producto">Buscar producto:</label>
+    <input type="text" id="busqueda_producto" placeholder="Nombre del producto">
+    <button class="buscar">Buscar</button>
+    <button class="volver">Volver</button>
+    </div>
+
+    <h2>Tabla de Productos</h2>
+
+    <div class="tabla-contenedor">
+    <button class="agregar-producto">+ Agregar Producto</button>
+    <table>
+        <tr>
+        <th>PRODUCTO</th>
+        <th>PRECIO</th>
+        <th>DESCRIPCION</th>
+        <th>ACCIONES</th>
+        </tr>
+        <tr>
+        <td>Hamburguesa Completa</td>
+        <td>4500.00</td>
+        <td>Carne, jamón, queso barra, lechuga, tomate, huevo frito y mayonesa casera</td>
+        <td class="acciones">
+            <button class="editar">Editar</button>
+            <button class="eliminar">Eliminar</button>
+        </td>
+        </tr>
+        <tr>
+        <td>Hamburguesa Clásica</td>
+        <td>3800.00</td>
+        <td>Carne, queso barra, cheddar, tomates y mayonesa casera</td>
+        <td class="acciones">
+            <button class="editar">Editar</button>
+            <button class="eliminar">Eliminar</button>
+        </td>
+        </tr>
+        <tr>
+        <td>Pizza Muzarella</td>
+        <td>5500.00</td>
+        <td>Queso barra, cheddar, jamón, panceta, cebolla caramelizada y mayonesa casera</td>
+        <td class="acciones">
+            <button class="editar">Editar</button>
+            <button class="eliminar">Eliminar</button>
+        </td>
+        </tr>
+        <tr>
+        <td>Pizza Napolitana</td>
+        <td>5500.00</td>
+        <td>Queso barra, cheddar, jamón, panceta, cebolla caramelizada y mayonesa casera</td>
+        <td class="acciones">
+            <button class="editar">Editar</button>
+            <button class="eliminar">Eliminar</button>
+        </td>
+        </tr>
+            <tr>
+        <td>Milanesa Clásica</td>
+        <td>3500.00</td>
+        <td>Carne</td>
+        <td class="acciones">
+            <button class="editar">Editar</button>
+            <button class="eliminar">Eliminar</button>
+        </td>
+        </tr>
+            <tr>
+        <td>Milanesa Napolitana</td>
+        <td>5000.00</td>
+        <td>Carne, queso, salsa de tomate</td>
+        <td class="acciones">
+            <button class="editar">Editar</button>
+            <button class="eliminar">Eliminar</button>
+        </td>
+        </tr>
+            <tr>
+        <td>Papas Fritas</td>
+        <td>4500.00</td>
+        <td>Papas</td>
+        <td class="acciones">
+            <button class="editar">Editar</button>
+            <button class="eliminar">Eliminar</button>
+        </td>
+        </tr>
+    </table>
+    </div>
+
+</body>
+</html>

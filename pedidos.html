@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Realizar Pedido</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/pedidos.css">
+    <link rel="stylesheet" href="style/navbar.css">
+    <link rel="icon" href="images/icon.png">
+    <style>
+        /* Reutilizamos el mismo estilo embebido del original */
+        #fecha-entrega-group {
+            display: none;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 15px;
+            border: 2px solid #e9ecef;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        #reserva:checked ~ #fecha-entrega-group {
+            display: block;
+        }
+        #fecha-entrega-group input[type="date"],
+        #fecha-entrega-group input[type="time"] {
+            width: 200px;
+            padding: 10px;
+            margin: 8px 0 15px 0;
+            border: 2px solid #ced4da;
+            border-radius: 6px;
+            font-size: 15px;
+            background-color: white;
+        }
+        #fecha-entrega-group label {
+            display: block;
+            margin-top: 12px;
+            color: #2c3e50;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        #fecha-entrega-group small {
+            display: block;
+            color: #6c757d;
+            font-size: 13px;
+            margin-top: -10px;
+            margin-bottom: 12px;
+        }
+        .form-group label[for="reserva"] {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-right: 12px;
+            font-size: 20px;
+        }
+        #reserva {
+            transform: scale(1.8);
+            margin-right: 8px;
+            vertical-align: middle;
+            cursor: pointer;
+            accent-color: #0056b3;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: auto;
+            font-size: 24px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+<h2 id="realizarpedido">Realizar Pedido</h2>
+
+<form>
+    <div class="form-group">
+        <label for="nombreCliente">Nombre del Cliente:</label>
+        <input type="text" id="nombreCliente" name="nombreCliente" required list="clientes_sugeridos"><br><br>
+
+        <label for="apellidoCliente">Apellido del Cliente:</label>
+        <input type="text" id="apellidoCliente" name="apellidoCliente" required><br><br>
+
+        <datalist id="clientes_sugeridos">
+            <option value="Juan | Pérez | 123456789 | Calle Falsa 123">
+            <option value="Ana | Gómez | 987654321 | Av. Siempreviva 742">
+        </datalist>
+
+        <label for="telefono">Teléfono del Cliente:</label>
+        <input type="tel" id="telefono" name="telefono"><br><br>
+
+        <label for="direccion">Dirección del Cliente:</label>
+        <input type="text" id="direccion" name="direccion"><br><br>
+    </div>
+
+    <div class="form-group">
+        <h3>Seleccionar Producto y Cantidad</h3>
+        <div class="categoria-producto">
+            <img src="images/Pizza.png" alt="Pizza" class="categoria-imagen">
+            <div class="categoria-items">
+                <div class="producto-item">
+                    <label><input type="checkbox" name="productos[]" value="1"> Pizza Muzzarella</label>
+                    <label>Cantidad:</label><input type="number" name="cantidades[1]" value="1" min="1">
+                    <label><input type="checkbox" name="mitades[]" value="1"> Mitad</label>
+                </div>
+                <div class="producto-item">
+                    <label><input type="checkbox" name="productos[]" value="2"> Pizza Napolitana</label>
+                    <label>Cantidad:</label><input type="number" name="cantidades[2]" value="1" min="1">
+                    <label><input type="checkbox" name="mitades[]" value="2"> Mitad</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="categoria-producto">
+            <img src="images/hamburguesa.png" alt="Hamburguesa Clásica" class="categoria-imagen">
+            <div class="categoria-items">
+                <div class="producto-item">
+                    <label><input type="checkbox" name="productos[]" value="3"> Hamburguesa Clásica</label>
+                    <label>Cantidad:</label><input type="number" name="cantidades[3]" value="1" min="1">
+                    <label><input type="checkbox" name="mitades[]" value="3"> Mitad</label>
+                </div>
+            </div>
+                <div class="producto-item">
+                    <label><input type="checkbox" name="productos[]" value="3"> Hamburguesa Completa</label>
+                    <label>Cantidad:</label><input type="number" name="cantidades[3]" value="1" min="1">
+                    <label><input type="checkbox" name="mitades[]" value="3"> Mitad</label>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <div class="categoria-producto">
+            <img src="images/milanesa.png" alt="Milanesa" class="categoria-imagen">
+            <div class="categoria-items">
+                <div class="producto-item">
+                    <label><input type="checkbox" name="productos[]" value="3"> Milanesa</label>
+                    <label>Cantidad:</label><input type="number" name="cantidades[3]" value="1" min="1">
+                    <label><input type="checkbox" name="mitades[]" value="3"> Mitad</label>
+                </div>
+            </div>
+                <div class="producto-item">
+                    <label><input type="checkbox" name="productos[]" value="3"> Milanesa Napolitana</label>
+                    <label>Cantidad:</label><input type="number" name="cantidades[3]" value="1" min="1">
+                    <label><input type="checkbox" name="mitades[]" value="3"> Mitad</label>
+                </div>
+            </div>
+        </div>
+        </div>
+
+            <div class="categoria-producto">
+            <img src="images/papas.png" alt="Papas" class="categoria-imagen">
+            <div class="categoria-items">
+                <div class="producto-item">
+                    <label><input type="checkbox" name="productos[]" value="3"> Papas Fritas</label>
+                    <label>Cantidad:</label><input type="number" name="cantidades[3]" value="1" min="1">
+                    <label><input type="checkbox" name="mitades[]" value="3"> Mitad</label>
+                </div>
+            </div>
+                <div class="producto-item">
+                    <label><input type="checkbox" name="productos[]" value="3"> Papas fritas gratinadas</label>
+                    <label>Cantidad:</label><input type="number" name="cantidades[3]" value="1" min="1">
+                    <label><input type="checkbox" name="mitades[]" value="3"> Mitad</label>
+                </div>
+            </div>
+        </div>
+        </div>
+
+
+    <div class="form-group">
+        <label for="reserva">¿Es una reserva?</label>
+        <input type="checkbox" id="reserva" name="reserva" value="1">
+        <div id="fecha-entrega-group">
+            <label for="fecha_entrega">Fecha de Entrega:</label>
+            <input type="date" id="fecha_entrega" name="fecha_entrega">
+            <label for="hora_entrega">Hora de Entrega:</label>
+            <input type="time" id="hora_entrega" name="hora_entrega">
+            <small>(Horario disponible: 18:00 a 01:00 Horas)</small>
+        </div>
+    </div>
+
+    <input type="submit" value="Completar Pedido">
+</form>
+
+<div class="navbar">
+    <a href="inicio.html">Inicio</a>
+    <a href="pedidos.html" class="active">Agregar Pedidos</a>
+    <a href="total.html">Total de Pedidos</a>
+    <a href="clientes.html">Clientes</a>
+    <a href="productos.html">Productos</a>
+    <a href="pedidos.html" style="float:right;">Cerrar sesión</a>
+</div>
+
+</body>
+</html>

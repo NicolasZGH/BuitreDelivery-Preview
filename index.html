@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style/style.css">
+    <link rel="icon" href="images/icon.png">
+    <link rel="stylesheet" href="style/ayuda.css">
+    <title>Buitre Delivery</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        .error-message {
+            color: red;
+            font-size: 0.9em;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form class="form_main" onsubmit="event.preventDefault(); window.location.href='inicio.html';">
+        <img src="images/logo.png" alt="El Buitre" class="form_image">
+        <p class="heading">Iniciar Sesión</p>
+
+        <div class="inputContainer">
+            <input type="text" class="inputField" placeholder="Usuario" required>
+        </div>
+
+        <div class="inputContainer">
+            <input type="password" class="inputField" placeholder="Contraseña" required>
+        </div>
+
+        <input type="submit" id="button" value="Ingresar">
+
+        <div class="signupContainer">
+            <a href="#">¿Olvidaste tu contraseña?</a>
+        </div>
+    </form>
+
+        <button class="faq-button">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+            <path d="M80 160c0-35.3 28.7-64 64-64h32c35.3 0 64 28.7 64 64v3.6c0 21.8-11.1 42.1-29.4 53.8l-42.2 27.1c-25.2 16.2-40.4 44.1-40.4 74V320c0 17.7 14.3 32 32 32s32-14.3 32-32v-1.4c0-8.2 4.2-15.8 11-20.2l42.2-27.1c36.6-23.6 58.8-64.1 58.8-107.7V160c0-70.7-57.3-128-128-128H144C73.3 32 16 89.3 16 160c0 17.7 14.3 32 32 32s32-14.3 32-32zm80 320a40 40 0 1 0 0-80 40 40 0 1 0 0 80z"/>
+        </svg>
+        <span class="tooltip">Contactanos por ayuda al: +1234567890</span>
+    </button>
+</body>
+</html>
