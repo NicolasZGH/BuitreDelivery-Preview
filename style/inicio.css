@@ -82,6 +82,112 @@ h2 {
     font-weight: 600;
 }
 
+.tabla-pedidos {
+    width: 100%;
+
+    border-collapse: collapse;
+    font-size: 1rem;
+    margin: 10px 50px 10px 0;
+    border-radius: 4px;
+}
+
+.tabla-pedidos th {
+    font-size: 1rem;
+    padding: 15px 12px;
+    text-align: left;
+    word-wrap: break-word;
+    hyphens: auto;
+    background-color: #f5f5f5;
+}
+
+.tabla-pedidos td {
+    padding: 15px 12px;
+    text-align: left;
+    word-wrap: break-word;
+    hyphens: auto;
+    vertical-align: middle;
+}
+
+.tabla-pedidos tr {
+    min-height: 60px;
+    border-bottom: 1px solid #eee;
+}
+
+/* Encabezados de cliente - ocupan todo el ancho */
+.tabla-pedidos th[colspan="5"] {
+    width: 100% !important;
+    font-size: 1.1rem;
+    padding: 20px 12px;
+    line-height: 1.2;
+    font-weight: bold;
+    color: white;
+    text-align: left;
+}
+
+/* Definir anchos específicos para cada columna */
+.tabla-pedidos th:nth-child(1), /* Producto */
+.tabla-pedidos td:nth-child(1) {
+    width: 35%;
+}
+
+.tabla-pedidos th:nth-child(2), /* Cantidad */
+.tabla-pedidos td:nth-child(2) {
+    width: 10%;
+    text-align: center;
+}
+
+.tabla-pedidos th:nth-child(3), /* Precio */
+.tabla-pedidos td:nth-child(3) {
+    width: 15%;
+    text-align: center;
+}
+
+.tabla-pedidos th:nth-child(4), /* Fecha */
+.tabla-pedidos td:nth-child(4) {
+    width: 15%;
+    text-align: center;
+}
+
+.tabla-pedidos th:nth-child(5), /* Acciones */
+.tabla-pedidos td:nth-child(5) {
+    width: 25%;
+    text-align: center;
+}
+
+/* Columna de acciones - botones inline */
+.tabla-pedidos td:nth-child(5) {
+    padding: 12px 8px;
+    vertical-align: middle;
+}
+
+.tabla-pedidos td:nth-child(5) form {
+    display: inline-block;
+    margin: 3px;
+}
+
+.tabla-pedidos button {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    border-radius: 4px;
+    min-width: auto;
+    cursor: pointer;
+    margin: 2px;
+}
+
+/* Columnas de precio y fecha */
+.tabla-pedidos td:nth-child(3),
+.tabla-pedidos td:nth-child(4) {
+    font-size: 0.95rem;
+    white-space: nowrap;
+}
+
+/* Contenedor de tabla */
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
 button {
     border: none;
     cursor: pointer;
@@ -465,35 +571,41 @@ h1 {
 
 /* MÓVILES - 480px y menos */
 @media (max-width: 480px) {
+    *, *::before, *::after {
+        box-sizing: border-box;
+    }
+
     body {
         font-size: 14px;
         padding-bottom: 80px;
         background-attachment: scroll;
+        background-size: cover;
+        font-family: Arial, sans-serif;
+        display: flex;
+        align-items: center;
     }
     
     .content {
-        padding: 10px;
+        padding: 0px;
         margin-top: 0;
     }
     
     h1 {
         font-size: 24px;
-        margin-top: 15px;
-        margin-bottom: 15px;
+        margin: 15px 0;
         padding: 0 10px;
         line-height: 1.2;
     }
     
     h2 {
-        font-size: 20px;
-        margin: 15px 0;
-        padding: 0 5px;
-        line-height: 1.3;
+        font-size: 18px;
+        margin: 15px 0 10px 0;
+        padding: 10px;
     }
     
-    /* Formulario de búsqueda más compacto */
+    /* Formulario de búsqueda */
     .busqueda-cliente {
-        width: 100%;
+        width: 90%;
         padding: 0.5rem;
         margin-bottom: 1rem;
     }
@@ -525,65 +637,88 @@ h1 {
         box-sizing: border-box;
     }
     
-    /* Tablas responsivas */
-    .tabla-pedidos {
-        width: 100%;
-        font-size: 0.75rem;
-        margin: 10px 0;
-        margin-right: 50px; /* Espacio para el botón de ayuda */
-        border-radius: 4px;
-    }
-    
-    .tabla-pedidos th,
-    .tabla-pedidos td {
-        padding: 6px 4px;
-        text-align: left;
-        word-wrap: break-word;
-        hyphens: auto;
-    }
-    
-    /* Encabezados de cliente más compactos */
-    .tabla-pedidos th[colspan="5"] {
-        font-size: 0.8rem;
-        padding: 8px 6px;
-        line-height: 1.2;
-    }
-    
-    /* Hacer scrollable las tablas horizontalmente si es necesario */
     .table-container {
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
+        margin: 0 -15px;
+        padding: 0 15px;
+        width: calc(100% + 30px);
     }
-    
-    /* Botones de acción más pequeños */
-    .tabla-pedidos button {
-        padding: 4px 6px;
-        font-size: 0.7rem;
-        margin: 1px;
-        border-radius: 3px;
-        min-width: auto;
-    }
-    
-    /* Columna de acciones más estrecha */
-    .tabla-pedidos td:last-child {
-        width: 120px;
-        text-align: center;
-    }
-    
-    /* Formularios en móvil */
-    .tabla-pedidos form {
-        display: inline-block;
-        margin: 1px;
-    }
-    
-    /* Ajustar columnas de precio y fecha */
-    .tabla-pedidos td:nth-child(3),
-    .tabla-pedidos td:nth-child(4) {
-        font-size: 0.7rem;
+
+    .tabla-pedidos {
+        min-width: 100%;
+        table-layout: auto;
+        display: table; /* Mantenemos la estructura de tabla */
         white-space: nowrap;
     }
+
+    /* Encabezados de cliente */
+    .tabla-pedidos tr:first-child th[colspan],
+    .tabla-pedidos tr th[colspan] {
+        white-space: normal;
+        padding: 12px 8px;
+        font-size: 16px;
+        line-height: 1.3;
+    }
+
+    /* Cabeceras de tabla */
+    .tabla-pedidos th:not([colspan]) {
+        padding: 10px 6px;
+        font-size: 14px;
+        text-align: center;
+    }
+
+    /* Celdas de datos */
+    .tabla-pedidos td {
+        padding: 10px 6px;
+        text-align: center;
+        font-size: 14px;
+        border-bottom: 1px solid #eee;
+    }
+
+    /* Columnas específicas */
+    .tabla-pedidos td:nth-child(1), /* Producto */
+    .tabla-pedidos th:nth-child(1) {
+        text-align: left;
+        white-space: normal;
+        min-width: 120px;
+    }
+
+    .tabla-pedidos td:nth-child(2), /* Cantidad */
+    .tabla-pedidos td:nth-child(3), /* Precio */
+    .tabla-pedidos td:nth-child(4) { /* Fecha */
+        min-width: 60px;
+    }
+
+    .tabla-pedidos td:nth-child(5) { /* Acciones */
+        min-width: 120px;
+    }
+
+    /* Botones de acciones */
+    .tabla-pedidos button {
+        min-width: 36px;
+        min-height: 36px;
+        padding: 6px;
+        font-size: 14px;
+        margin: 2px;
+    }
+
+
     
-    /* Botón de ayuda más pequeño */
+    /* Ajustes para pedidos reservados */
+    .tabla-pedidos tr th[colspan][style*="background-color:#b3180b"] {
+        font-size: 16px;
+    }
+    
+    .tabla-pedidos td:nth-child(5) form {
+        margin-right: -8px !important;
+    }
+    
+    .tabla-pedidos button {
+        padding: 5px !important;
+    }
+
+    /* Botón de ayuda */
     .faq-button {
         width: 50px;
         height: 50px;
@@ -606,7 +741,7 @@ h1 {
         word-wrap: break-word;
     }
     
-    /* Formularios de edición en móvil */
+    /* Formularios de edición */
     .edit-product-form,
     .edit-client-form {
         margin: 1rem 0;
@@ -650,30 +785,10 @@ h1 {
         font-size: 1rem;
     }
     
-    /* Ocultar elementos no esenciales en móvil si es necesario */
+    /* Ocultar fecha en móvil si hay poco espacio */
     .tabla-pedidos th:nth-child(4),
     .tabla-pedidos td:nth-child(4) {
-        display: none; /* Oculta fecha en móvil si hay poco espacio */
-    }
-
-    .tabla-pedidos td {
-        padding: 8px 6px;
-    }
-
-    .tabla-pedidos th {
-        font-size: 0.8rem;
-        padding: 10px 8px;
-    }
-
-    .tabla-pedidos td:last-child {
-        display: flex;
-        flex-direction: column;
-        gap: 4px;
-        align-items: center;
-    }
-
-    .tabla-pedidos button {
-        width: 100%;
+        display: none;
     }
 }
 
@@ -728,6 +843,86 @@ h1 {
     .faq-button svg {
         width: 18px;
         height: 18px;
+    }
+
+    .tabla-pedidos {
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    font-size: 0.95rem;
+}
+
+.tabla-pedidos th {
+    background-color: #e64e08;
+    color: #ffffff;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding: 12px 16px;
+    border-bottom: 1px solid #d64000;
+    text-align: left;
+}
+
+.tabla-pedidos td {
+    background-color: #fdfdfd;
+    padding: 10px 16px;
+    border-bottom: 1px solid #f0f0f0;
+    vertical-align: middle;
+}
+
+.tabla-pedidos tr:nth-child(even) td {
+    background-color: #f7f7f7;
+}
+
+.tabla-pedidos tr:last-child td {
+    border-bottom: none;
+}
+
+/* Encabezado cliente personalizado */
+.tabla-pedidos tr:first-child th[colspan="5"],
+.tabla-pedidos tr th[colspan="5"] {
+    background-color: #473d38 !important;
+    color: #fff;
+    font-size: 1rem;
+    text-align: left;
+    padding: 14px 18px;
+    border-radius: 4px 4px 0 0;
+}
+
+/* Encabezado de reservado */
+.tabla-pedidos tr th[colspan="5"][style*="background-color:#b3180b"] {
+    background-color: #b3180b !important;
+}
+
+/* Botones alineados con margen */
+.tabla-pedidos td form {
+    margin-right: 5px;
+}
+
+/* Hover fila */
+.tabla-pedidos tr:hover td {
+    background-color: #f0f0f0;
+}
+
+
+    .tabla-pedidos td {
+        padding: 8px 6px;
+    }
+
+    .tabla-pedidos th {
+        font-size: 0.8rem;
+        padding: 10px 8px;
+    }
+
+    .tabla-pedidos td:last-child {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        align-items: center;
+    }
+
+    .tabla-pedidos button {
+        width: 100%;
     }
 }
 
