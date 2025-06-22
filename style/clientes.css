@@ -90,7 +90,7 @@ body {
     margin: 1rem auto;
     margin-top: 5%;
     padding: 1rem;
-    width: 600px;
+    width: 50%;
     max-width: 95%;
     display: flex;
     gap: 10px;
@@ -160,6 +160,7 @@ h2 {
     color: #420f00;
     font-size: 23px;
     margin: 20px 0;
+    font-weight: 600;
 }
 
 /* Media Queries para responsive */
