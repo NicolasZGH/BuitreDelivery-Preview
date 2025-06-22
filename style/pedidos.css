@@ -286,6 +286,10 @@ form {
 
 /* MÓVILES ≤480px - Sin cambiar HTML */
 @media screen and (max-width: 480px) {
+
+    *, *::before, *::after {
+        box-sizing: border-box;
+    }
     /* Ajustes generales */
     body {
         font-size: 15px;
@@ -293,7 +297,7 @@ form {
     
     #realizarpedido {
         font-size: 24px;
-        margin-top: 20px;
+        margin-top: 65px;
         margin-bottom: 10px;
     }
     
@@ -324,14 +328,16 @@ form {
     /* Estructura de productos (sin cambiar HTML) */
     .categoria-producto {
         flex-direction: column;
-        align-items: flex-start;
-        padding: 12px;
+        align-items: center;
+        width: 100%;
+        padding: 16px;
         margin-bottom: 15px;
+        margin-left: 0.2%;
     }
     
     .categoria-imagen {
-        width: 70px;
-        height: 70px;
+        width: 75px;
+        height: 75px;
         margin: 0 auto 10px;
     }
     
@@ -346,7 +352,7 @@ form {
     .producto-item > label:first-of-type {
         display: flex;
         align-items: center;
-        font-size: 16px;
+        font-size: 14px;
         margin-bottom: 8px;
     }
     
