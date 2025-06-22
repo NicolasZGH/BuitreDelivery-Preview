@@ -574,7 +574,7 @@ h1 {
     *, *::before, *::after {
         box-sizing: border-box;
     }
-
+/*
     body {
         font-size: 14px;
         padding-bottom: 80px;
@@ -583,8 +583,30 @@ h1 {
         font-family: Arial, sans-serif;
         display: flex;
         align-items: center;
-    }
+    } */
     
+    html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body {
+    background-image: url('..\\images\\fondo.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    font-family: 'Poppins', sans-serif;
+    color: #1b1919;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
     .content {
         padding: 0px;
         margin-top: 0;
@@ -638,11 +660,10 @@ h1 {
     }
     
     .table-container {
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        margin: 0 -15px;
-        padding: 0 15px;
-        width: calc(100% + 30px);
+        overflow-x: visible;
+        margin: 0;
+        padding: 0;
+        width: 100%;
     }
 
     .tabla-pedidos {
@@ -652,47 +673,63 @@ h1 {
         white-space: nowrap;
     }
 
+    /* Ajustar columnas específicas */
+    .tabla-pedidos th:nth-child(1),
+    .tabla-pedidos td:nth-child(1) {
+        width: 40% !important; /* Producto - más espacio */
+        text-align: left;
+        white-space: normal;
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+
+    .tabla-pedidos th:nth-child(2),
+    .tabla-pedidos td:nth-child(2) {
+        width: 10% !important; /* Cantidad */
+    }
+
+    .tabla-pedidos th:nth-child(3),
+    .tabla-pedidos td:nth-child(3) {
+        width: 20% !important; /* Precio */
+    }
+
+    .tabla-pedidos th:nth-child(4),
+    .tabla-pedidos td:nth-child(4) {
+        display: none; /* Ocultar fecha en móvil */
+    }
+
+    .tabla-pedidos th:nth-child(5),
+    .tabla-pedidos td:nth-child(5) {
+        width: 30% !important; /* Acciones - más espacio */
+        padding: 4px 2px;
+        padding-right: 10px;
+    }
+
+    /* Ajustar botones */
+    .tabla-pedidos button {
+        min-width: 30px;
+        min-height: 30px;
+        padding: 4px;
+        margin: 0 -2px; /* Botones más juntos */
+        font-size: 13px;
+    }
+
+    /* Texto más pequeño en celdas */
+    .tabla-pedidos td {
+        font-size: 13px;
+        padding: 8px 4px;
+    }
+
     /* Encabezados de cliente */
     .tabla-pedidos tr:first-child th[colspan],
     .tabla-pedidos tr th[colspan] {
-        white-space: normal;
+        font-size: 14px;
         padding: 12px 8px;
-        font-size: 16px;
+        white-space: normal;
         line-height: 1.3;
     }
 
-    /* Cabeceras de tabla */
-    .tabla-pedidos th:not([colspan]) {
-        padding: 10px 6px;
-        font-size: 14px;
-        text-align: center;
-    }
 
-    /* Celdas de datos */
-    .tabla-pedidos td {
-        padding: 10px 6px;
-        text-align: center;
-        font-size: 14px;
-        border-bottom: 1px solid #eee;
-    }
-
-    /* Columnas específicas */
-    .tabla-pedidos td:nth-child(1), /* Producto */
-    .tabla-pedidos th:nth-child(1) {
-        text-align: left;
-        white-space: normal;
-        min-width: 120px;
-    }
-
-    .tabla-pedidos td:nth-child(2), /* Cantidad */
-    .tabla-pedidos td:nth-child(3), /* Precio */
-    .tabla-pedidos td:nth-child(4) { /* Fecha */
-        min-width: 60px;
-    }
-
-    .tabla-pedidos td:nth-child(5) { /* Acciones */
-        min-width: 120px;
-    }
 
     /* Botones de acciones */
     .tabla-pedidos button {
