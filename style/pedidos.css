@@ -258,9 +258,158 @@ form {
 }
 
 
-@media (max-width: 768px) {
-    .form-group input[type="date"] {
-        font-size: 16px; 
-        padding: 0.625rem 0.75rem;
+@media screen and (max-width: 768px) {
+    .categoria-producto {
+        width: 100%;
+        padding: 15px;
+        margin-left: -15px;
+    }
+
+    .categoria-imagen {
+        width: 80px;
+        height: 80px;
+    }
+
+    input[type="text"], input[type="num"], input[type="tel"], input[type="dir"] {
+        width: calc(100% - 20px);
+    }
+
+    .producto-item {
+        display: flex;
+    }
+
+    input[type="submit"] {
+        width: 100%;
+    }
+}
+
+
+/* MÓVILES ≤480px - Sin cambiar HTML */
+@media screen and (max-width: 480px) {
+    /* Ajustes generales */
+    body {
+        font-size: 15px;
+    }
+    
+    #realizarpedido {
+        font-size: 24px;
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+    
+    form {
+        padding: 15px;
+        margin: 10px 0;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    /* Campos del formulario */
+    .form-group label:not([for="reserva"]) {
+        display: block;
+        margin-bottom: 5px;
+        font-size: 16px;
+    }
+    
+    input[type="text"],
+    input[type="tel"],
+    input[type="number"] {
+        width: 100%;
+        box-sizing: border-box;
+        margin-bottom: 15px;
+        padding: 8px;
+        font-size: 15px;
+    }
+    
+    /* Estructura de productos (sin cambiar HTML) */
+    .categoria-producto {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 12px;
+        margin-bottom: 15px;
+    }
+    
+    .categoria-imagen {
+        width: 70px;
+        height: 70px;
+        margin: 0 auto 10px;
+    }
+    
+    /* Productos individuales - reestructuración visual */
+    .producto-item {
+        position: relative;
+        padding-left: 30px;
+        margin-bottom: 15px;
+        width: 100%;
+    }
+    
+    .producto-item > label:first-of-type {
+        display: flex;
+        align-items: center;
+        font-size: 16px;
+        margin-bottom: 8px;
+    }
+    
+    .producto-item input[type="checkbox"] {
+        position: absolute;
+        left: 0;
+        transform: scale(1.3);
+    }
+    
+    /* Cantidad - ajuste de posición */
+    .producto-item label:nth-of-type(2) {
+        display: inline-block;
+        margin: 5px 10px 5px 0;
+        font-size: 14px;
+        font-weight: normal;
+    }
+    
+    .producto-item input[type="number"] {
+        width: 50px;
+        margin: 0 10px 0 0;
+    }
+    
+    /* Checkbox "mitad" - reubicación visual */
+    .producto-item label:nth-of-type(3) {
+        display: inline-flex;
+        align-items: center;
+        font-size: 14px;
+        font-weight: normal;
+        margin-left: 10px;
+    }
+    
+    .producto-item label:nth-of-type(3) input[type="checkbox"] {
+        position: relative;
+        left: auto;
+        margin-right: 5px;
+    }
+    
+    /* Botón de enviar */
+    input[type="submit"] {
+        width: 100%;
+        padding: 12px;
+        font-size: 18px;
+    }
+    
+    /* Sección de reserva */
+    .form-group label[for="reserva"] {
+        font-size: 16px;
+        display: inline-flex;
+        align-items: center;
+    }
+    
+    #reserva {
+        transform: scale(1.5);
+        margin-right: 10px;
+    }
+    
+    #fecha-entrega-group {
+        padding: 12px;
+    }
+    
+    #fecha-entrega-group input[type="date"],
+    #fecha-entrega-group input[type="time"] {
+        width: 100%;
+        margin-bottom: 10px;
     }
 }
