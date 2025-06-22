@@ -1,82 +1,246 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
 body {
-    background-image: url('https://i.imgur.com/IAhbM3F.png');
+    background-image: url('..\\images\\fondo.png');
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center;
-    font-family: 'Roboto', sans-serif;
-    color: #333;
+    background-position: center center;
+    background-attachment: fixed;
+    font-family: 'Poppins', sans-serif;
+    color: #1b1919;
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /*el fondo cubra al menos la altura de la ventana */
+    align-items: center;
+    min-height: 100vh;
 }
 
+/* Estilos para la tabla principal */
+.tabla-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 1rem auto;
+    width: 95%;
+    max-width: 1200px;
+}
 
-table {
-    width: 70%;
-    margin: 0 auto;
+.tabla-clientes {
+    width: 100%;
     border-collapse: collapse;
-    font-size: 0.9em;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     background-color: #fff;
 }
 
-table, th, td {
-    border: 1px solid #e1e1e1;
-    padding: 4px;
-    text-align: left;
-}
-
-th {
-    background-color: #f3740d;
-    color: #fff;
+.tabla-clientes th {
+    background-color: #e64e08;
+    color: white;
+    padding: 12px;
+    text-align: center;
     font-weight: bold;
+    position: sticky;
+    top: 0;
 }
 
-td {
+.tabla-clientes td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #e1e1e1;
+}
+
+.tabla-clientes tr:nth-child(even) td {
     background-color: #f9f9f9;
-    padding: 10px;
 }
 
+/* Estilos para botones */
+.btn {
+    padding: 8px 12px;
+    margin: 2px;
+    font-size: 0.9em;
+    border-radius: 4px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+    border: none;
+    color: white;
+}
+
+.btn-editar { 
+    background-color: #3498db; 
+}
+
+.btn-editar:hover {
+    background-color: #2980b9;
+}
+
+.btn-eliminar { 
+    background-color: #e74c3c; 
+}
+
+.btn-eliminar:hover {
+    background-color: #c0392b;
+}
+
+/* Formulario de búsqueda */
+.form-busqueda {
+    margin: 1rem auto;
+    margin-top: 5%;
+    padding: 1rem;
+    width: 600px;
+    max-width: 95%;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.form-busqueda input {
+    padding: 0.5rem;
+    flex-grow: 1;
+    min-width: 150px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-busqueda button {
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.form-busqueda .buscar { 
+    background-color: #e64e08; 
+    color: white; 
+}
+
+.form-busqueda .buscar:hover {
+    background-color: #c7450a;
+}
+
+.form-busqueda .volver { 
+    background-color: #333; 
+    color: white; 
+}
+
+.form-busqueda .volver:hover {
+    background-color: #222;
+}
+
+/* Botón agregar cliente */
+.add-cliente-btn {
+    margin: 1rem auto;
+    background-color: #e64e08;
+    padding: 0.7rem 1.2rem;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    display: block;
+    width: fit-content;
+    transition: background-color 0.3s ease;
+}
+
+.add-cliente-btn:hover {
+    background-color: #c7450a;
+}
+
+/* Títulos */
 h2 {
     text-align: center;
     color: #420f00;
     font-size: 23px;
-    margin-top: 20px;
+    margin: 20px 0;
 }
 
-button {
-    background-color: #ca2f00;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    padding: 10px;
-    font-size: 1em;
-    transition: background-color 0.3s ease;
+/* Media Queries para responsive */
+@media (max-width: 992px) {
+    .tabla-clientes th, 
+    .tabla-clientes td {
+        padding: 10px;
+    }
+    
+    .btn {
+        padding: 7px 10px;
+    }
 }
 
-button:hover {
-    background-color: #a08345;
+@media (max-width: 768px) {
+    .form-busqueda {
+        flex-direction: column;
+        width: 90%;
+    }
+    
+    .form-busqueda input,
+    .form-busqueda button {
+        width: 100%;
+    }
+    
+    .tabla-clientes {
+        min-width: 700px;
+    }
+    
+    .btn {
+        padding: 6px 8px;
+        font-size: 0.85em;
+    }
 }
 
-a {
-    text-decoration: none;
-    color: #af8c4c;
-    font-weight: bold;
-    margin-top: 20px;
+@media (max-width: 576px) {
+    body {
+        padding-top: 60px;
+    }
+    
+    /* Ocultar columnas menos importantes */
+    .tabla-clientes th:nth-child(4),
+    .tabla-clientes td:nth-child(4),
+    .tabla-clientes th:nth-child(5),
+    .tabla-clientes td:nth-child(5) {
+        display: none;
+    }
+    
+    .btn {
+        padding: 5px 7px;
+        font-size: 0.8em;
+    }
+    
+    h2 {
+        font-size: 20px;
+    }
 }
 
-a:hover {
-    color: #8e7738;
-}
+@media (max-width: 480px) {
+    *, *::before, *::after {
+        box-sizing: border-box;
+    }
 
-h1 {
-    text-align: center;
-    margin-top: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    .form-busqueda {
+        width: 90%;
+        padding: 0.5rem;
+        margin-top: 15%;
+    }
+    
+    .tabla-clientes th, 
+    .tabla-clientes td {
+        padding: 8px 5px;
+    }
+    
+    .btn {
+        padding: 4px 6px;
+        margin: 1px;
+    }
+    
+    .add-cliente-btn {
+        padding: 0.6rem 1rem;
+        font-size: 0.9em;
+    }
 }
-
