@@ -1,0 +1,298 @@
+/* Estilos base */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-image: url('..\\images\\fondo.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    color: #1b1919;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding-top: 70px;
+}
+
+/* Busqueda */
+.busqueda {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: white;
+    padding: 1rem;
+    margin: 2rem auto;
+    width: 50%;
+    max-width: 800px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    flex-wrap: wrap;
+}
+
+.busqueda input {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    flex-grow: 1;
+    min-width: 200px;
+}
+
+.busqueda button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.busqueda .buscar {
+    background-color: #e64e08;
+    color: white;
+}
+
+.busqueda .buscar:hover {
+    background-color: #c7450a;
+}
+
+.busqueda .volver {
+    background-color: #333;
+    color: white;
+}
+
+.busqueda .volver:hover {
+    background-color: #222;
+}
+
+/* Títulos */
+h2 {
+    text-align: center;
+    color: #212121;
+    font-size: 28px;
+    margin: 20px 0;
+    font-weight: 600;
+}
+
+/* Contenedor principal */
+.tabla-contenedor {
+    width: 95%;
+    max-width: 1100px;
+    margin: 0 auto 3rem auto;
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Botón agregar producto */
+.agregar-producto {
+    margin: 1rem 0;
+    background-color: #e64e08;
+    padding: 0.7rem 1.2rem;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: block;
+    width: fit-content;
+}
+
+.agregar-producto:hover {
+    background-color: #c7450a;
+}
+
+/* Tabla de productos */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #e1e1e1;
+}
+
+th {
+    background-color: #e64e08;
+    color: #fff;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    position: sticky;
+    top: 0;
+}
+
+td {
+    background-color: #f9f9f9;
+    vertical-align: top;
+}
+
+tr:nth-child(even) td {
+    background-color: #f0f0f0;
+}
+
+tr:hover td {
+    background-color: #e9e9e9;
+}
+
+/* Acciones */
+.acciones {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.acciones button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s;
+    white-space: nowrap;
+}
+
+.editar {
+    background-color: #2196F3;
+    color: white;
+}
+
+.editar:hover {
+    background-color: #0b7dda;
+}
+
+.eliminar {
+    background-color: #f44336;
+    color: white;
+}
+
+.eliminar:hover {
+    background-color: #da190b;
+}
+
+/* Media Queries para responsive */
+@media (max-width: 992px) {
+    .busqueda {
+        width: 95%;
+    }
+    
+    th, td {
+        padding: 10px 12px;
+    }
+    
+    .acciones {
+        flex-direction: column;
+        gap: 5px;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding-top: 60px;
+    }
+    
+    .busqueda {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .busqueda input,
+    .busqueda button {
+        width: 100%;
+    }
+    
+    /* Scroll horizontal para tabla */
+    .tabla-contenedor {
+        overflow-x: auto;
+        padding: 0.5rem;
+    }
+    
+    table {
+        min-width: 700px;
+    }
+    
+    .acciones {
+        flex-direction: row;
+    }
+}
+
+@media (max-width: 576px) {
+    h2 {
+        font-size: 24px;
+    }
+    
+    .navbar a {
+        padding: 15px 12px;
+        font-size: 0.9em;
+    }
+    
+    th, td {
+        padding: 8px 10px;
+        font-size: 0.9em;
+    }
+    
+    .acciones button {
+        padding: 6px 10px;
+        font-size: 0.85em;
+    }
+    
+    .agregar-producto {
+        padding: 0.6rem 1rem;
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 480px) {
+
+    *, *::before, *::after {
+        box-sizing: border-box;
+    }
+    h2 {
+        font-size: 20px;
+    }
+    
+    .busqueda {
+        margin: 1rem auto;
+        padding: 0.8rem;
+    }
+    
+    .busqueda label {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+    
+    th, td {
+        padding: 6px 8px;
+    }
+    
+    /* Ocultar descripción en móviles muy pequeños */
+    td:nth-child(3) {
+        display: none;
+    }
+    
+    th:nth-child(3) {
+        display: none;
+    }
+    
+    .acciones {
+        flex-direction: column;
+        gap: 4px;
+    }
+    
+    .acciones button {
+        padding: 5px 8px;
+        font-size: 0.8em;
+    }
+}
