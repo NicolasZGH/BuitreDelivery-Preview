@@ -5,148 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Productos</title>
     <link rel="stylesheet" href="style/navbar.css">
-    <link rel="stylesheet" href="style/inicio.css">
+    <link rel="stylesheet" href="style/productos.css">
     <link rel="icon" type="image/png" href="images/icon.png">
-    <style>
-    body {
-        font-family: 'Roboto', sans-serif;
-        margin-top: 50px;
-    }
-
-    .navbar {
-
-        overflow: hidden;
-        display: flex;
-        align-items: center;
-    }
-
-    .navbar a {
-        float: left;
-        display: block;
-        color: #fff;
-        text-align: center;
-        padding: 14px 20px;
-        text-decoration: none;
-    }
-
-    .navbar a.active {
-        background-color: #e64e08;
-    }
-
-
-
-    .navbar a:last-child {
-        margin-left: auto;
-    }
-
-    .busqueda {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        background: white;
-        padding: 1rem;
-        margin: 2rem auto 1rem auto;
-        width: fit-content;
-        border-radius: 10px;
-    }
-
-    .busqueda input {
-        padding: 0.5rem;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-    }
-
-    .busqueda button {
-        padding: 0.5rem 1rem;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-weight: bold;
-    }
-
-    .busqueda .buscar {
-        background-color: #e64e08;
-        color: white;
-    }
-
-    .busqueda .volver {
-        background-color: #333;
-        color: white;
-    }
-
-    h2 {
-        text-align: center;
-        margin: 0px;
-        font-size: 1.8rem;
-    }
-
-    .tabla-contenedor {
-        max-width: 1100px;
-        margin: 0 auto 3rem auto;
-        border-radius: 10px;
-        padding: 1rem;
-    }
-
-    .agregar-producto {
-        margin: 1rem;
-        background-color: #e64e08;
-        padding: 0.7rem 1.2rem;
-        color: white;
-        font-weight: bold;
-        border: none;
-        border-radius: 6px;
-        cursor: pointer;
-        margin-right: 78%;
-    }
-
-    table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 1rem;
-    }
-
-    th {
-        background-color: #e64e08;
-        color: white;
-        padding: 10px;
-        text-align: left;
-    }
-
-    td {
-        padding: 10px;
-        border-bottom: 1px solid #ddd;
-    }
-
-    .acciones button {
-        padding: 6px 12px;
-        margin-right: 5px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        font-weight: bold;
-    }
-
-    .editar {
-        background-color: #2196F3;
-        color: white;
-    }
-
-    .eliminar {
-        background-color: #f44336;
-        color: white;
-    }
-    </style>
 </head>
 <body>
 
-    <div class="navbar">
-    <a href="inicio.html">Inicio</a>
-    <a href="pedidos.html">Agregar Pedidos</a>
-    <a href="total.html">Total de Pedidos</a>
-    <a href="clientes.html">Clientes</a>
-    <a href="productos.html" class="active">Productos</a>
-    <a href="index.html">Cerrar sesión</a>
-    </div>
+<!-- Navbar responsive -->
+<div class="navbar">
+    <button id="menu-toggle" aria-label="Abrir menú">☰</button>
+    <ul class="nav-list">
+        <li><a href="inicio.html">Inicio</a></li>
+        <li><a href="pedidos.html">Agregar Pedidos</a></li>
+        <li><a href="total.html">Total de Pedidos</a></li>
+        <li><a href="clientes.html">Clientes</a></li>
+        <li><a href="productos.html" class="active">Productos</a></li>
+        <li><a href="index.html" class="cerrar-sesion">Cerrar sesión</a></li>
+    </ul>
+</div>
 
     <div class="busqueda">
     <label for="busqueda_producto">Buscar producto:</label>
@@ -157,8 +32,9 @@
 
     <h2>Tabla de Productos</h2>
 
-    <div class="tabla-contenedor">
     <button class="agregar-producto">+ Agregar Producto</button>
+
+    <div class="tabla-contenedor">
     <table>
         <tr>
         <th>PRODUCTO</th>
@@ -231,6 +107,12 @@
         </tr>
     </table>
     </div>
+
+<script>
+    document.getElementById('menu-toggle').onclick = function () {
+        document.querySelector('.nav-list').classList.toggle('open');
+    };
+</script>
 
 </body>
 </html>
